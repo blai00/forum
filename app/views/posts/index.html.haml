@@ -1,1 +1,10 @@
-%h1 This is the index placeholder
+#posts
+    - @posts.each do |post|
+        .post
+            %h2.title
+                = link_to post.title, post_url(post.id)
+            %p.date
+                Created
+                = time_ago_in_words(post.created_at)
+                ago by
+                =post.user.email

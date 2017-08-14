@@ -2,14 +2,15 @@ class PostsController < ApplicationController
     before_action :set_posts, only: [:show]
     
     def index
+        @posts = Post.all.order("created_at DESC")
     end
     
     def new
-        @post = Post.new
+        @post = current_user.posts.build
     end 
     
     def create 
-        @post = Post.new(posts_params)
+        @post = current.user.posts.build(posts_params)
         
         if @post.save
             redirect_to @post
