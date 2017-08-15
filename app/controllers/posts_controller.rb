@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+    before_filter :authenticate_user!
     before_action :set_posts, only: [:show]
     
     def index
@@ -10,7 +11,7 @@ class PostsController < ApplicationController
     end 
     
     def create 
-        @post = current.user.posts.build(posts_params)
+        @post = current_user.posts.build(posts_params)
         
         if @post.save
             redirect_to @post

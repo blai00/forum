@@ -40,11 +40,13 @@ body{
     background: white;
     #logo {
         float: left;
-        p{
+        a{
             text-transform: uppercase;
             font-weight: 700;
             letter-spacing: -1px;
-            font-size: 1.2rem;
+            font-size: 150%;
+            text-decoration:none;
+            color:red;
         }
     }
     #buttons {
